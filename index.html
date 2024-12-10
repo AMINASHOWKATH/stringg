@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .input-box {
+            margin: 10px 0;
+        }
+        .input-box label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-box input {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .buttons .reset {
+            background-color: #f44336;
+        }
+        .buttons .calculate {
+            background-color: #4CAF50;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>String Operation</h1>
+
+        <div class="input-box">
+            <label for="string1">String 1:</label>
+            <input type="text" id="string1" placeholder="Enter String 1">
+        </div>
+
+        <div class="input-box">
+            <label for="string2">String 2:</label>
+            <input type="text" id="string2" placeholder="Enter String 2">
+        </div>
+
+        <div class="input-box">
+            <label for="string3">String 3:</label>
+            <input type="text" id="string3" placeholder="Enter String 3">
+        </div>
+
+        <div class="buttons">
+            <button class="reset" onclick="resetFields()">Reset</button>
+            <button class="calculate" onclick="calculateResult()">Calculate</button>
+        </div>
+
+        <div class="result" id="result">
+            Result: Operation type, String 1, String 2, String 3, and result will appear here.
+        </div>
+    </div>
+
+    <script>
+        function resetFields() {
+            document.getElementById('string1').value = '';
+            document.getElementById('string2').value = '';
+            document.getElementById('string3').value = '';
+            document.getElementById('result').innerHTML = 'Result: Operation type, String 1, String 2, String 3, and result will appear here.';
+        }
+
+        function calculateResult() {
+            const string1 = document.getElementById('string1').value;
+            const string2 = document.getElementById('string2').value;
+            const string3 = document.getElementById('string3').value;
+
+            if (string1 && string2 && string3) {
+                const operationType = 'String Methods Example';
+
+                const length1 = string1.length;
+                const upperCase2 = string2.toUpperCase();
+                const lowerCase3 = string3.toLowerCase();
+                const concatResult = string1.concat(' ', string2, ' ', string3);
+                const slicedString = string1.slice(0, 3);
+
+                document.getElementById('result').innerHTML = `
+                    Result: <br>
+                    Operation Type: ${operationType} <br>
+                    String 1 Length: ${length1} <br>
+                    String 2 Uppercase: ${upperCase2} <br>
+                    String 3 Lowercase: ${lowerCase3} <br>
+                    Concatenated Result: ${concatResult} <br>
+                    Sliced String 1 (first 3 chars): ${slicedString}
+                `;
+            } else {
+                alert('Please enter all three strings.');
+            }
+        }
+    </script>
+</body>
+</html>
